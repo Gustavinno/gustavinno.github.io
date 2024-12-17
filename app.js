@@ -1,4 +1,4 @@
-const URL='https://fpaniaguajavascript.github.io/movies-250.json';
+const URL='https://gustavinno.github.io/movies-250.json';
 
 function generateCard(pelicula){
     
@@ -35,12 +35,18 @@ function generateCard(pelicula){
     const nuevoParrafoAnyo = document.createElement('p');
     const nuevaCelda = document.createElement("strong");
     nuevoParrafoAnyo.appendChild(nuevaCelda);
-    nuevaCelda.textContent = "Director: ";
+    nuevaCelda.textContent = "Año: ";
     nuevoContenido.appendChild(nuevoParrafoAnyo);
     const textoAnyo = document.createTextNode(pelicula.textoAnyo)
     nuevoParrafoAnyo.appendChild(textoAnyo);
     //7. Genero
-
+    const nuevoParrafoGenero = document.createElement('p');
+    const nuevaCelda2 = document.createElement("strong");
+    nuevoParrafoGenero.appendChild(nuevaCelda2);
+    nuevaCelda2.textContent = "Genero: ";
+    nuevoContenido.appendChild(nuevoParrafoGenero);
+    const textoGenero = document.createTextNode(pelicula.textoGenero)
+    nuevoParrafoGenero.appendChild(textoGenero);
 
     
     //Último paso: Agregar al contenedor la ficha recién creada

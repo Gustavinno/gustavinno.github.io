@@ -2,7 +2,10 @@
     padding: 1em;
     text-align: center;
 }
-#div-formulario input,button,select {
+
+#div-formulario input,
+button,
+select {
     padding: 0.5em;
     border-radius: 5px;
 }
@@ -14,4 +17,14 @@
 #div-formulario button:hover {
     background-color: rgb(29, 109, 15);
     cursor: pointer;
+}
+
+.card-content h3 {
+    font-size: 1.2em;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.card img {
+    height: 70%;
 }

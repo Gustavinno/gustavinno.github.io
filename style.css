@@ -6,9 +6,9 @@ body {
     padding: 0;
 }
 
-.container {
+#container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 tarjetas por fila */
+    grid-template-columns: repeat(5, 1fr); /* 4 tarjetas por fila */
     gap: 20px;
     padding: 20px;
     max-width: 1200px;
@@ -57,13 +57,13 @@ body {
 
 /* Responsividad */
 @media (max-width: 900px) {
-    .container {
+    #container {
         grid-template-columns: repeat(3, 1fr); /* 3 tarjetas por fila en pantallas medianas */
     }
 }
 
 @media (max-width: 600px) {
-    .container {
+    #container {
         grid-template-columns: 1fr; /* 1 tarjeta por fila en pantallas pequeñas */
     }
 }

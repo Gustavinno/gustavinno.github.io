@@ -1,5 +1,6 @@
 #div-formulario {
     padding: 1em;
+    text-align: center;
 }
 #div-formulario input,button,select {
     padding: 0.5em;
@@ -7,10 +8,10 @@
 }
 
 #div-formulario button {
-    background-color: rgb(246, 183, 22);
+    background-color: rgb(77, 176, 1);
 }
 
 #div-formulario button:hover {
-    background-color: rgb(109, 74, 15);
+    background-color: rgb(29, 109, 15);
     cursor: pointer;
 }

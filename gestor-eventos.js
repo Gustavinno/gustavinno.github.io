@@ -9,20 +9,22 @@ document.querySelector("#b-titulo").addEventListener("click", () => {
     peliculasFiltradas.forEach(pelicula => {
         generateCard(pelicula);
     });
+
 });
 
-document.querySelector("#t-actor").addEventListener("input", () => {
+document.querySelector("#t-director").addEventListener("input", () => {
     clearCards();
-    const textoBusqueda = document.querySelector("#t-actor").value;
+    const textoBusqueda = document.querySelector("#t-director").value;
     const peliculasFiltradas =
-        peliculas.filter(actor =>
-            pelicula.Actor
+        peliculas.filter(pelicula =>
+            pelicula.Title
                 .toUpperCase()
                 .includes(textoBusqueda.trim().toUpperCase()));
-    peliculasFiltradas.forEach(actor => {
-        generateCard(actor);
+    peliculasFiltradas.forEach(pelicula => {
+        generateCard(pelicula);
     });
 });
+
 /*
 //Se busca por cada pulsación
 document.querySelector("#t-titulo").addEventListener("input", () => {

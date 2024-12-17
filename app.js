@@ -53,11 +53,13 @@ function generateCard(pelicula){
     nuevoContenido.appendChild(nuevoParrafoGenero);
 
     //Último paso: Agregar al contenedor la ficha recién creada
-    document.querySelector("#container").appendChild(nuevaCard);//Agregamos el div al contenedor
+    document.querySelector("#container").appendChild(nuevaCard);
+    //Agregamos el div al contenedor
 }
 
 function processMovie(data) {
     peliculas = data.movies;
+    
     //FORMAS DE RECORRER ARRAYS Y OBJETOS
     /*
     //Recorremos con bucle for tradicional

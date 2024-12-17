@@ -5,14 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mystyle.css">
-    <title>Super Pelis</title>
+    <title>Pelis</title>
+    <style>
+         h1 {
+            text-align: center;
+            color: rgb(242, 123, 38);
+            font-size: 50px;
+            }
+    </style>
+
 </head>
 <body>
+    <header>
+        <h1 style=>F l i x n e t</h1>
+        <hr>
+    </header>
+
     <div id="div-formulario">
         <input type="text" id="t-titulo" placeholder="Título">
         <button id="b-titulo">Buscar</button>
+
         <input type="text" id="t-director" placeholder="Director">
-        <button id="b-actor">Buscar</button>
+        <button id="b-director">Buscar</button>
+
         <select id="s-genero">
             <option value="drama">Drama</option>
             <option value="terror">Terror</option>
@@ -27,6 +42,7 @@
         <input type="radio" id="r-desc" name="ordenar" value="descendente">
         <button id="b-ordenar">Ordenar</button>        
     </div>
+
     <div id="container">
         <!-- Tarjeta 1 -->
         <!--

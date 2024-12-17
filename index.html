@@ -1,11 +1,464 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pruebainclass</title>
-</head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mystyle.css">
+    <title>Rentshop</title>
+
+    <style>
+        h1 {
+            text-align: center;
+        }
+    </style>
+
+    </head>
+
 <body>
-    <h1>Test en clase</h1>
+   
+       <h1 style= "text-align: center">M o v i e s h o p</h1>
+
+    <div id="div-formulario">
+        <input type="text" id="t-titulo" placeholder="Título">
+        <button id="b-titulo">Buscar</button>
+        <input type="text" id="t-actor" placeholder="Actor">
+        <button id="b-actor">Buscar</button>
+
+        <select id="s-genero">
+            <option value="genero">Genero</option>
+            <option value="terror">Terror</option>
+            <option value="romance">Romance</option>
+            <option value="aventura">Aventura</option>
+            <option value="comedia">Comedia</option>
+            <option value="guerra">Guerra</option>
+            <option value="ciancia_ficcion">Ciencia Ficcion</option>
+            <option value="fantasia">Fantasia</option>            
+
+        </select>
+
+        <button id="b-genero">Buscar</button>
+        <input type="number" id="t-anyo" placeholder="Año" min="1900" max="2030">
+        <button id="b-anyo">Buscar</button>
+
+        <label for="r-asc">Duración ascend</label>
+        <input type="radio" id="r-asc" name="ordenar" value="ascendente">
+        <label for="r-desc">Duración descend</label>
+        <input type="radio" id="r-desc" name="ordenar" value="descendente">
+        <button id="b-ordenar">Ordenar</button>
+    </div>
+
+    <div class="container">
+
+        <!-- Tarjeta 1 -->
+        <div class="card">
+            <img src="https://es.web.img3.acsta.net/c_310_420/pictures/18/06/12/12/12/0117051.jpg?coixp=49&coiyp=27" alt="Póster de película">
+            <div class="card-content">
+                <h3>El Padrino</h3>
+                <p><strong>Director:</strong> Francis Ford Coppola</p>
+                <p><strong>Año:</strong> 1972</p>
+                <p><span class="genre">Género:</span> Drama, Crimen</p>
+            </div>
+        </div>
+        <!-- Tarjeta 2 -->
+        <div class="card">
+            <img src="https://es.web.img3.acsta.net/c_310_420/medias/nmedia/18/72/41/74/20198901.jpg" alt="Póster de película">
+            <div class="card-content">
+                <h3>Inception</h3>
+                <p><strong>Director:</strong> Christopher Nolan</p>
+                <p><strong>Año:</strong> 2010</p>
+                <p><span class="genre">Género:</span> Ciencia ficción, Thriller</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div class="card">
+            <img src="https://es.web.img3.acsta.net/c_310_420/pictures/16/11/30/17/44/581119.jpg" alt="Póster de película">
+            <div class="card-content">
+                <h3>La La Land</h3>
+                <p><strong>Director:</strong> Damien Chazelle</p>
+                <p><strong>Año:</strong> 2016</p>
+                <p><span class="genre">Género:</span> Musical, Romance</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 4 -->
+        <div class="card">
+            <img src="https://es.web.img3.acsta.net/c_310_420/medias/nmedia/18/70/92/02/20149073.jpg" alt="Póster de película">
+            <div class="card-content">
+                <h3>Gladiador</h3>
+                <p><strong>Director:</strong> Ridley Scott</p>
+                <p><strong>Año:</strong> 2000</p>
+                <p><span class="genre">Género:</span> Acción, Drama</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 5 -->
+        <div class="card">
+            <img src="https://es.web.img2.acsta.net/c_310_420/pictures/22/12/20/12/23/2940043.jpg" alt="Póster de película">
+            <div class="card-content">
+                <h3>Babylon</h3>
+                <p><strong>Director:</strong> Damien Chazelle</p>
+                <p><strong>Año:</strong> 2023</p>
+                <p><span class="genre">Género:</span>Drama</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 6 -->
+        <div class="card">
+            <img src="https://i.ytimg.com/vi/kGLCbAqGdSE/sddefault.jpg" alt="Póster de película">
+            <div class="card-content">
+                <h3>You should be dancing</h3>
+                <p><strong>Director:</strong> Christopher Nolan</p>
+                <p><strong>Año:</strong> 2023</p>
+                <p><span class="genre">Género:</span>Drama</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 7 -->
+        <div class="card">
+            <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTMAqBnwrLnTzhAciejW1fZMYascZF6_OFyxwhykbMQ5OZFRct-tNBQJ1yg43FsW3TLEJkryfztEyTknuOq1DsDFUJAzdnqE4XNLN348V3W" alt="Póster de película">
+            <div class="card-content">
+                <h3>The prisoner</h3>
+                <p><strong>Director:</strong> Ridley Scott</p>
+                <p><strong>Año:</strong> 1987</p>
+                <p><span class="genre">Género:</span>Aventura</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 8 -->
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5kqstHK-fuGI2WSjkK6zXGYRUbcTEM6wTEbGAoHHeK7JtTYrivDwg_LnsxaK2UUykIpU&usqp=CAU" alt="Póster de película">
+            <div class="card-content">
+                <h3>La conversacion</h3>
+                <p><strong>Director:</strong> Francis Ford Coppola</p>
+                <p><strong>Año:</strong> 1974</p>
+                <p><span class="genre">Género:</span>Drama</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 9 -->
+        <div class="card">
+            <img src="https://pics.filmaffinity.com/Oppenheimer-389531177-large.jpg" alt="Póster de película">
+            <div class="card-content">
+                <h3>Oppenheimer</h3>
+                <p><strong>Director:</strong> Christopher Nolan</p>
+                <p><strong>Año:</strong> 2023</p>
+                <p><span class="genre">Género:</span> Aventura</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 10 -->
+        <div class="card">
+            <img src="https://es.web.img3.acsta.net/c_310_420/pictures/18/06/11/17/17/2597792.jpg" alt="Póster de película">
+            <div class="card-content">
+                <h3>First man</h3>
+                <p><strong>Director:</strong> Damien Chazelle</p>
+                <p><strong>Año:</strong> 2018</p>
+                <p><span class="genre">Género:</span>Drama</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 11 -->
+        <div class="card">
+            <img src="data:image/jpeg;base64,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" alt="Póster de película">
+            <div class="card-content">
+                <h3>Bomb</h3>
+                <p><strong>Director:</strong> Ridley Scott</p>
+                <p><strong>Año:</strong> 2010</p>
+                <p><span class="genre">Género:</span> Acción</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 12 -->
+        <div class="card">
+            <img src="https://pics.filmaffinity.com/El_caballero_oscuro-102763119-large.jpg" alt="Póster de película">
+            <div class="card-content">
+                <h3>El caballero oscuro</h3>
+                <p><strong>Director:</strong> Christopher Nolan</p>
+                <p><strong>Año:</strong> 2012</p>
+                <p><span class="genre">Género:</span> Acción</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 13 -->
+        <div class="card">
+            <img src="https://pics.filmaffinity.com/La_ley_de_la_calle-445924292-large.jpg" alt="Póster de película">
+            <div class="card-content">
+                <h3>La ley de la calle</h3>
+                <p><strong>Director:</strong> Francis Ford Coppola</p>
+                <p><strong>Año:</strong> 1984</p>
+                <p><span class="genre">Género:</span>Drama</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 14 -->
+        <div class="card">
+            <img src="https://pics.filmaffinity.com/Napoleaon-404072945-large.jpg" alt="Póster de película">
+            <div class="card-content">
+                <h3>Napoleon</h3>
+                <p><strong>Director:</strong> Ridley Scott</p>
+                <p><strong>Año:</strong> 2023</p>
+                <p><span class="genre">Género:</span> Aventura</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 15 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x450" alt="Póster de película">
+            <div class="card-content">
+                <h3>Origen</h3>
+                <p><strong>Director:</strong> Christopher Nolan</p>
+                <p><strong>Año:</strong> 2010</p>
+                <p><span class="genre">Género:</span> Ciencia Ficcion</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 16 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x450" alt="Póster de película">
+            <div class="card-content">
+                <h3>El hombre sin edad</h3>
+                <p><strong>Director:</strong> Francis Ford Coppola</p>
+                <p><strong>Año:</strong> 1999</p>
+                <p><span class="genre">Género:</span>Drama</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 17 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x450" alt="Póster de película">
+            <div class="card-content">
+                <h3>La ciudad de las estrellas</h3>
+                <p><strong>Director:</strong> Damien Chazelle</p>
+                <p><strong>Año:</strong> 2017</p>
+                <p><span class="genre">Género:</span> Comedia</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 18 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x450" alt="Póster de película">
+            <div class="card-content">
+                <h3>El ultimo duelo</h3>
+                <p><strong>Director:</strong> Ridley Scott</p>
+                <p><strong>Año:</strong> 2021</p>
+                <p><span class="genre">Género:</span>Drama</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 19 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x450" alt="Póster de película">
+            <div class="card-content">
+                <h3>Gladiador</h3>
+                <p><strong>Director:</strong> Ridley Scott</p>
+                <p><strong>Año:</strong> 2000</p>
+                <p><span class="genre">Género:</span> Acción, Drama</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 20 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x450" alt="Póster de película">
+            <div class="card-content">
+                <h3>Megalopolis</h3>
+                <p><strong>Director:</strong> Francis Ford Coppola</p>
+                <p><strong>Año:</strong> 2001</p>
+                <p><span class="genre">Género:</span> Ficcion</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 21 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x450" alt="Póster de película">
+            <div class="card-content">
+                <h3>Batman Begins</h3>
+                <p><strong>Director:</strong> Christopher Nolan</p>
+                <p><strong>Año:</strong> 2005</p>
+                <p><span class="genre">Género:</span> Acción</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 22 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x450" alt="Póster de película">
+            <div class="card-content">
+                <h3>La casa gucci</h3>
+                <p><strong>Director:</strong> Ridley Scott</p>
+                <p><strong>Año:</strong> 2021</p>
+                <p><span class="genre">Género:</span> Drama</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 23 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x450" alt="Póster de película">
+            <div class="card-content">
+                <h3>Todo el dinero del mundo</h3>
+                <p><strong>Director:</strong> Ridley Scott</p>
+                <p><strong>Año:</strong> 2018</p>
+                <p><span class="genre">Género:</span> Aventura</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 24 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x450" alt="Póster de película">
+            <div class="card-content">
+                <h3>Whiplash</h3>
+                <p><strong>Director:</strong> Damien Chazelle</p>
+                <p><strong>Año:</strong> 2015</p>
+                <p><span class="genre">Género:</span>Drama</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 25 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x450" alt="Póster de película">
+            <div class="card-content">
+                <h3>Gladiador</h3>
+                <p><strong>Director:</strong> Ridley Scott</p>
+                <p><strong>Año:</strong> 2000</p>
+                <p><span class="genre">Género:</span> Acción, Drama</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 26 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x450" alt="Póster de película">
+            <div class="card-content">
+                <h3>El triunfo de un hpmbre llamado caballo</h3>
+                <p><strong>Director:</strong> Carlos Aured</p>
+                <p><strong>Año:</strong> 1984</p>
+                <p><span class="genre">Género:</span> Terror</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 27 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x450" alt="Póster de película">
+            <div class="card-content">
+                <h3>Memento</h3>
+                <p><strong>Director:</strong> Christopher Nolan</p>
+                <p><strong>Año:</strong> 2001</p>
+                <p><span class="genre">Género:</span> Aventura</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 28 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x450" alt="Póster de película">
+            <div class="card-content">
+                <h3>El retorno de walpurgis</h3>
+                <p><strong>Director:</strong> Carlos Aured</p>
+                <p><strong>Año:</strong> 1973</p>
+                <p><span class="genre">Género:</span> Terror</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 29 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x450" alt="Póster de película">
+            <div class="card-content">
+                <h3>El espanto surge en la tumba</h3>
+                <p><strong>Director:</strong> Carlos Aured</p>
+                <p><strong>Año:</strong> 1973</p>
+                <p><span class="genre">Género:</span> Terror</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 30 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x450" alt="Póster de película">
+            <div class="card-content">
+                <h3>Flesh and the devil</h3>
+                <p><strong>Director:</strong> Clarence Brown</p>
+                <p><strong>Año:</strong> 1976</p>
+                <p><span class="genre">Género:</span> Romance</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 31 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x450" alt="Póster de película">
+            <div class="card-content">
+                <h3>El despertar</h3>
+                <p><strong>Director:</strong> Clarence Brown</p>
+                <p><strong>Año:</strong> 1986</p>
+                <p><span class="genre">Género:</span> Romance</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 32 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x450" alt="Póster de película">
+            <div class="card-content">
+                <h3>Ven a vivir conmigo</h3>
+                <p><strong>Director:</strong> Clarence Brown</p>
+                <p><strong>Año:</strong> 1976</p>
+                <p><span class="genre">Género:</span> Romance</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 33 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x450" alt="Póster de película">
+            <div class="card-content">
+                <h3>JFK: Caso revisado</h3>
+                <p><strong>Director:</strong> Oliver Stone</p>
+                <p><strong>Año:</strong> 2022</p>
+                <p><span class="genre">Género:</span>Guerra</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 34 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x450" alt="Póster de película">
+            <div class="card-content">
+                <h3>White lies</h3>
+                <p><strong>Director:</strong> Oliver Stone</p>
+                <p><strong>Año:</strong> 2005</p>
+                <p><span class="genre">Género:</span> Guerra</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 35 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x450" alt="Póster de película">
+            <div class="card-content">
+                <h3>Salvajes</h3>
+                <p><strong>Director:</strong> Oliver Stone</p>
+                <p><strong>Año:</strong> 2012</p>
+                <p><span class="genre">Género:</span> Guerra</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 36 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x450" alt="Póster de película">
+            <div class="card-content">
+                <h3>Ellos no envejeceran</h3>
+                <p><strong>Director:</strong> Peter Jackson</p>
+                <p><strong>Año:</strong> 2012</p>
+                <p><span class="genre">Género:</span> Fantasia</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 37 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x450" alt="Póster de película">
+            <div class="card-content">
+                <h3>El hobbit</h3>
+                <p><strong>Director:</strong> Peter Jackson</p>
+                <p><strong>Año:</strong> 2013</p>
+                <p><span class="genre">Género:</span> Fantasia</p>
+            </div>
+        </div>
+    </div>
+
+
 </body>
+
 </html>

@@ -15,9 +15,20 @@ function doAction(){
 }
 
 document.querySelector("#b-ordenar").addEventListener("focusin", doAction);
-*/
+
 document.querySelector("#b-ordenar").onclick = (event)=>{
     clearCards();
+////
+document.querySelector("#b-ordenar").addEventListener("mouseleave", ()=> {
+    console.log("Leave");
+});
+
+////
+document.querySelector("#b-ordenar").onclick = (event)=>{
+    clearCards();
+    */
+
+function ordenarPeliculasPorRuntime(peliculasFiltradas) {
     const asc = document.querySelector("#r-asc").checked;
     const desc = document.querySelector("#r-desc").checked;
     //Ordenar en función del valor de Runtime

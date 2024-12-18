@@ -1,8 +1,12 @@
-const URL='https://gustavinno.github.io/movies-250.json';
+const URL = 'https://gustavinno.github.io/movies-250.json';
 
 let peliculas;
+let peliculasFiltradas;
 
 function generateCard(pelicula){
+
+    //0. Cambiamos el contador
+    document.querySelector("#contador").textContent=peliculasFiltradas.length;
     //1. Crear la tarjeta
     const nuevaCard = document.createElement("div");//Crea un elemento de tipo div
     nuevaCard.setAttribute("class","card");
@@ -53,13 +57,32 @@ function generateCard(pelicula){
     nuevoContenido.appendChild(nuevoParrafoGenero);
 
     //Último paso: Agregar al contenedor la ficha recién creada
-    document.querySelector("#container").appendChild(nuevaCard);
-    //Agregamos el div al contenedor
+    document.querySelector("#container").appendChild(nuevaCard);//Agregamos el div al contenedor
+}
+
+function generarDesplegableGenero(peliculas){
+    //Extraemos los géneros del fichero json 
+    let setGeneros = new Set();
+    peliculas.forEach(pelicula=>{
+        let generos = pelicula.Genre.split(',').map(genero=>genero.trim());
+        generos.forEach(genero=>setGeneros.add(genero));
+    });
+    //<option value="drama">Drama</option>
+    let arrayGeneros = Array.from(setGeneros);
+    arrayGeneros.sort().forEach(genero=>{
+        let generoOption = document.createElement("option");
+        generoOption.setAttribute("value",genero.toLowerCase());
+        generoOption.textContent=genero;
+        document.querySelector("#s-genero").appendChild(generoOption);
+    });
 }
 
 function processMovie(data) {
     peliculas = data.movies;
-    
+    //peliculasFiltradas = peliculas;//Ambos arrays son el mismo
+    peliculasFiltradas = Array.from(peliculas);//Crea un nuevo array
+    generarDesplegableGenero(peliculas);
+
     //FORMAS DE RECORRER ARRAYS Y OBJETOS
     /*
     //Recorremos con bucle for tradicional

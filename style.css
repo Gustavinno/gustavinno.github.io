@@ -16,7 +16,7 @@ body {
 }
 
 .card {
-    background-color: #0f0f0d;
+    background-color: #181815;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(241, 138, 3, 0.914); /* Sombra en las tarjetas */
@@ -25,13 +25,13 @@ body {
 
 .card:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7); /* Efecto al pasar el mouse */
+    box-shadow: 0 8px 16px rgba(250, 164, 3, 0.7); /* Efecto al pasar el mouse */
 }
 
 .card img {
     width: 100%;
     height: auto;
-    border-bottom: 2px solid #333;
+    border-bottom: 2px solid #060505;
 }
 
 .card-content {
@@ -41,13 +41,13 @@ body {
 .card-content h3 {
     font-size: 1.4em;
     margin: 0;
-    color: #f0f0f0;
+    color: #cec7c7;
 }
 
 .card-content p {
     font-size: 0.9em;
     margin: 5px 0;
-    color: #ccc;
+    color: #cec7c7;
 }
 
 .card-content .genre {

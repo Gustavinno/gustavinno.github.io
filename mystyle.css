@@ -15,16 +15,28 @@ select {
 }
 
 #div-formulario button:hover {
-    background-color: rgb(29, 109, 15);
+    background-color: rgb(245, 165, 6);
     cursor: pointer;
 }
 
 .card-content h3 {
-    font-size: 1.2em;
-    white-space: nowrap;
-    overflow: hidden;
-}
+    font-size: 1.1em;
+   }
 
 .card img {
-    height: 70%;
+    height: 80%;
 }
+
+.card-content p:nth-child(3), p:nth-child(4) {
+font-size: 0.70em;
+}
+
+#contador {
+    background-color: rgb(187, 21, 21);
+    color: white;
+    font-weight: lighter;
+    padding: 0.2em 0.5em 0.2em 0.5em;
+    border-radius: 50px;
+
+}
+

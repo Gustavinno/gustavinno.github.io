@@ -24,7 +24,7 @@ select {
    }
 
 .card img {
-    height: 80%;
+    height: 70%;
 }
 
 .card-content p:nth-child(3), p:nth-child(4) {

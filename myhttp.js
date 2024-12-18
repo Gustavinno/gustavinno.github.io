@@ -1,5 +1,5 @@
 function doGetRequest(url, processData) {
-    fetch(url)
+    fetch('https://github.com/Gustavinno/gustavinno.github.io')
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Network response was not ok");

@@ -1,5 +1,5 @@
-//Diferentes maneras de asignar funciones a eventos
 /*
+//Diferentes maneras de asignar funciones a eventos
 document.querySelector("#b-ordenar").addEventListener("mouseleave", (event)=> {
     console.log("Leave");
 });
@@ -16,7 +16,6 @@ function doAction(){
 
 document.querySelector("#b-ordenar").addEventListener("focusin", doAction);
 */
-
 document.querySelector("#b-ordenar").onclick = (event)=>{
     clearCards();
     const asc = document.querySelector("#r-asc").checked;

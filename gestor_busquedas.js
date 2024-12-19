@@ -1,4 +1,3 @@
-
 //Busqueda por Título, pulsando el botón Buscar
 document.querySelector("#b-titulo").addEventListener("click", () => {
     filtrarPeliculas("#t-titulo", "Title");

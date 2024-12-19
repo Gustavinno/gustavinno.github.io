@@ -1,6 +1,12 @@
+
 #div-formulario {
     padding: 1em;
     text-align: center;
+}
+
+
+#div-formulario div {
+    margin-bottom: 0.5em;
 }
 
 #div-formulario input,
@@ -21,7 +27,7 @@ select {
 
 .card-content h3 {
     font-size: 1.1em;
-   }
+   }s
 
 .card img {
     height: 70%;
@@ -32,8 +38,8 @@ font-size: 0.70em;
 }
 
 #contador {
-    background-color: rgb(187, 21, 21);
-    color: rgb(233, 230, 230);
+    background-color: rgb(245, 165, 6);
+    color: rgb(110, 6, 6);
     font-weight: bolder;
     padding: 0.2em 0.5em 0.2em 0.5em;
     border-radius: 50px;

@@ -1,54 +1,69 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="mystyle.css">
-    <title>Pelis</title>
-    <!--<style>
-         h1 {
-            text-align: center;
-            color: rgb(242, 123, 38);
-            font-size: 50px;
-            }
-    </style>-->
+    <link rel="stylesheet" href="titlestyle.css"><--GG-->
+        <link rel="stylesheet" href="mystyle.css">
+        <title>Pelis</title>
+
 
 </head>
+
 <body>
     <header>
-    <h1 style=>F l i x n e t</h1>
-       <hr style="height: 3px; background-color: rgb(242, 123, 38); border: none;">
+        <h1 style=>F l i x n e t</h1>
+        <hr style="height: 3px; background-color: rgb(242, 123, 38); border: none;">
     </header>
 
+    
     <div id="div-formulario">
-        <input type="text" id="t-titulo" placeholder="Título">
-        <button id="b-titulo">Buscar</button>
+        <!--Codigo para nuevos contenedores de busqueda-->
+        <!--<div id="div-omdb">
+            <input type="text" id="t-titulo-omdb" placeholder="Título">
+            <input type="text" id="t-apikey" placeholder="OMDB API Key">
+            <button id="b-buscar-omdb">Buscar en OMDB</button>
+        </div>-->
 
-        <input type="text" id="t-actor" placeholder="Actor">
-        <button id="b-actor">Buscar</button>
+        <div>
+            <input type="text" id="t-titulo-omdb" placeholder="Título">
+            <input type="text" id="t-apikey" placeholder="OMDB API">
+            <button id="b-buscar-omdb">Busqueda en OMDB</button>
 
-        <select id="s-genero">
-            <!--option value="drama">Drama</option>
-            <option value="Animation">Animacion</option>
-            <option value="horror">Terror</option>-->
-        </select>
+            <input type="text" id="t-titulo" placeholder="Título">
+            <button id="b-titulo">Buscar</button>
+            <input type="text" id="t-actor" placeholder="Actor">
+            <button id="b-actor">Buscar</button>
 
-        <button id="b-genero">Buscar</button>
-        <input type="number" id="t-anyo" placeholder="Año" min="1900" max="2030">
-        <button id="b-anyo">Buscar</button>
+            <select id="s-genero">
+                <!--option value="drama">Drama</option>-->
+            </select>
 
-        <label for="r-asc">Duración ascendente</label>
-        <input type="radio" id="r-asc" name="ordenar" value="ascendente" checked>
-        <label for="r-desc">Duración descendente</label>
-        <input type="radio" id="r-desc" name="ordenar" value="descendente">
-        <button id="contador"></button>  
-        <span></span>      
-    </div>
+            <button id="b-genero">Buscar</button>
+            <input type="number" id="t-anyo" placeholder="Año" min="1900" max="2030">
+            <button id="b-anyo">Buscar</button>
+            <span></span>
+        </div>
+        <!--<p></p>-->
+        <div>
 
-    <div id="container">
-        <!-- Tarjeta 1 -->
-        <!--
+            
+            <label for="r-asc">Duración ascendente</label>
+            <input type="radio" id="r-asc" name="ordenar" value="ascendente" checked>
+            <label for="r-desc">Duración descendente</label>
+            <input type="radio" id="r-desc" name="ordenar" value="descendente">
+            <button id="b-ordenar">Ordenar</button>
+            <span id="contador">250</span>    
+
+        </div>
+
+
+        <div id="container">
+            <!--Empezar por un diseño de ejemplo y guardarlo por si acaso-->
+            <!-- Tarjeta 1 -->
+            <!--
         <div class="card">
             <img src="https://via.placeholder.com/300x450" alt="Póster de película">
             <div class="card-content">
@@ -59,8 +74,9 @@
             </div>
         </div>
         -->
-    </div>
+        </div>
 </body>
+
 </html>
 <script src="./myhttp.js"></script>
 <script src="./app.js"></script>

@@ -3,9 +3,40 @@ const URL = 'https://gustavinno.github.io/movies-250.json';
 let peliculas;
 let peliculasFiltradas;
 
+
+function processMovie(data) {
+    peliculas = data.movies;
+    //peliculasFiltradas = peliculas;//Ambos arrays son el mismo
+    peliculasFiltradas = Array.from(peliculas);//Crea un nuevo array
+    generarDesplegableGenero(peliculas);
+
+    //FORMAS DE RECORRER ARRAYS Y OBJETOS
+    /*
+    //Recorremos con bucle for tradicional
+    for (let i=0;i<peliculas.length;i++){
+        console.log("Duration:" + peliculas[i].Runtime);
+    }
+    //Recorremos con bucle for-of
+    for (pelicula of peliculas) {
+        console.log("Director:" + pelicula.Director);
+    }
+    //Recorremos con el método forEach
+    peliculas.forEach(pelicula => {
+        console.log("Título:" + pelicula.Title);
+    });
+    //Recorre el contenido de un objeto
+    for (atributo in peliculas[0]){
+        console.log(atributo, peliculas[0][atributo]);
+    }
+    */
+    peliculas.forEach(pelicula => {
+        generateCard(pelicula);
+    });
+}
+
 function generateCard(pelicula){
     //0. Cambiamos el contador
-    document.querySelector("#contador").textContent=peliculasFiltradas.length;
+    document.querySelector("#container").textContent=peliculasFiltradas.length;
 
     //1. Crear la tarjeta
     const nuevaCard = document.createElement("div");//Crea un elemento de tipo div
@@ -74,36 +105,6 @@ function generarDesplegableGenero(peliculas){
         generoOption.setAttribute("value",genero.toLowerCase());
         generoOption.textContent=genero;
         document.querySelector("#s-genero").appendChild(generoOption);
-    });
-}
-
-function processMovie(data) {
-    peliculas = data.movies;
-    //peliculasFiltradas = peliculas;//Ambos arrays son el mismo
-    peliculasFiltradas = Array.from(peliculas);//Crea un nuevo array
-    generarDesplegableGenero(peliculas);
-
-    //FORMAS DE RECORRER ARRAYS Y OBJETOS
-    /*
-    //Recorremos con bucle for tradicional
-    for (let i=0;i<peliculas.length;i++){
-        console.log("Duration:" + peliculas[i].Runtime);
-    }
-    //Recorremos con bucle for-of
-    for (pelicula of peliculas) {
-        console.log("Director:" + pelicula.Director);
-    }
-    //Recorremos con el método forEach
-    peliculas.forEach(pelicula => {
-        console.log("Título:" + pelicula.Title);
-    });
-    //Recorre el contenido de un objeto
-    for (atributo in peliculas[0]){
-        console.log(atributo, peliculas[0][atributo]);
-    }
-    */
-    peliculas.forEach(pelicula => {
-        generateCard(pelicula);
     });
 }
 

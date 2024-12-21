@@ -1,4 +1,9 @@
-const URL = 'https://gustavinno.github.io/movies-250.json';
+//const URL = 'https://gustavinno.github.io/movies-250.json';
+
+let url= 'http://www.omdbapi.com/?apikey=[apikey]&'
+
+let URL='http://www.omdbapi.com/apikey=';
+let URL= 'https://www.omdbapi.com/?apikey=';
 
 let peliculas;
 let peliculasFiltradas;
@@ -6,9 +11,12 @@ let peliculasFiltradas;
 
 function processMovie(data) {
     peliculas = data.movies;
-    //peliculasFiltradas = peliculas;//Ambos arrays son el mismo
+    //peliculasFiltradas = peliculas;//Ambos arrays son el mismo  
+    peliculas = data.Search;
     peliculasFiltradas = Array.from(peliculas);//Crea un nuevo array
     generarDesplegableGenero(peliculas);
+
+
 
     //FORMAS DE RECORRER ARRAYS Y OBJETOS
     /*
@@ -79,20 +87,45 @@ function generateCard(pelicula){
     
     //7. Género
     //<p><span class="genre">Género:</span> Drama, Crimen</p>
-    const nuevoParrafoGenero = document.createElement("p");
+    /*     const nuevoParrafoGenero = document.createElement("p");
     const nuevoSpanGenero = document.createElement("span");
     nuevoSpanGenero.setAttribute("class","genre");
     nuevoSpanGenero.textContent = "Género: ";
     nuevoParrafoGenero.appendChild(nuevoSpanGenero);
     nuevoParrafoGenero.appendChild(document.createTextNode(pelicula.Genre));
     nuevoContenido.appendChild(nuevoParrafoGenero);
-
+*/
     //Último paso: Agregar al contenedor la ficha recién creada
     document.querySelector("#container").appendChild(nuevaCard);//Agregamos el div al contenedor
 }
+function generarDesplegableTipo(pelicula){
+    //limpiamos el desplegable
+    document.querySelectorAll("#s-tipooption").forEach(Option => Option.remove());
+}
+
+//Extraemos los tipos del fichero json
+
+let setTipos = new set();
+peliculas.forEach(pelicula => {
+    setTipos.add(pelicula.Type);
+});
+
+
+//<option value="drama">Drama</option>
+let arrayTipos = Array.from(setTipos);
+arrayTipos.sort().forEach(tipo => {
+    let tipoOption = document.createElement("option");
+    tipoOption.setAttribute("value", tipo.toLowerCase());
+    //tipoOption.textContent=tipo;
+    tipoOption.textContent = tipo.charAt(0).toUpperCase() + tipo.slice(1)
+    document.querySelector("#s-tipo").appendChild(tipoOption);
+});
+
+
+/*
 
 function generarDesplegableGenero(peliculas){
-    //Extraemos los géneros del fichero json 
+      //Extraemos los géneros del fichero json 
     let setGeneros = new Set();
     peliculas.forEach(pelicula=>{
         let generos = pelicula.Genre.split(',').map(genero=>genero.trim());
@@ -107,10 +140,27 @@ function generarDesplegableGenero(peliculas){
         document.querySelector("#s-genero").appendChild(generoOption);
     });
 }
+*/
 
 function clearCards(){
     //document.querySelector("#container").innerHTML="";//Chapuza
     document.querySelectorAll(".card").forEach(card=>card.remove());//Elegante
 }
 
-doGetRequest(URL, processMovie);
+function renderPaginationControls(totalPages) {
+    const controlsContainer = document.getElementById('pagination-controls');
+    controlsContainer.innerHTML = '';
+    for (let i = 1; i <= totalPages; i++) {
+        const button = document.createElement('button');
+        button.innerText = i;
+        button.disabled = i === currentPage;
+        button.addEventListener('click', () => {
+            currentPage = i;
+            getMoviesFromOMDB(currentPage);
+        });
+        controlsContainer.appendChild(button);
+    }
+}
+initApp();
+
+/* doGetRequest(URL, processMovie); */

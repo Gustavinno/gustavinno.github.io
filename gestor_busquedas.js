@@ -1,3 +1,13 @@
+
+
+//Obtencion de peliculas de OMDB
+document.querySelector("#b-buscar-omdb").addEventListener("click",()=>{
+        let tituloBuscado = document.querySelector("#t-titulo-omdb").value;
+        let apikey = document.querySelector("#t-apikey").value;
+        let nuevaURL =`${URL}${apikey}&s=${tituloBuscado}`;
+        doGetRequest(nuevaURL, processMovie);
+})
+
 //Busqueda por Título, pulsando el botón Buscar
 document.querySelector("#b-titulo").addEventListener("click", () => {
     filtrarPeliculas("#t-titulo", "Title");

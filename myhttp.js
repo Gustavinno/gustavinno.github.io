@@ -14,9 +14,6 @@ function doGetRequest(url, processData) {
 }
 
 
-
-
-
 /*
 //Otro ejemplo usando fetch
 fetch('https://api.example.com/data')

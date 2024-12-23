@@ -1,36 +1,27 @@
 
+function getMoviesFromOMDB(page = 1) {
 
-//Obtencion de peliculas de OMDB
-document.querySelector("#b-buscar-omdb").addEventListener("click",()=>{
-        let tituloBuscado = document.querySelector("#t-titulo-omdb").value;
-        let apikey = document.querySelector("#t-apikey").value;
-        let nuevaURL =`${URL}${apikey}&s=${tituloBuscado}`;
-        doGetRequest(nuevaURL, processMovie);
-})
+    const apikey = document.querySelector("#t-apikey").value;
+    if (!apikey) {
+        alert("Por favor, ingrese una clave API válida.");
+        return; // Salir de la función si no hay clave API.
+    }
+    const tituloBuscado = document.querySelector("#t-titulo-omdb").value;
+    let nuevaURL = `${URL}${apikey}&s=${tituloBuscado}&page=${page}`;
+
+    doGetRequest(nuevaURL, processMovie);
+}
 
 //Busqueda por Título, pulsando el botón Buscar
 document.querySelector("#b-titulo").addEventListener("click", () => {
     filtrarPeliculas("#t-titulo", "Title");
 });
 
-//Busqueda por Título, escribiendo en la caja de texto
-/*
-document.querySelector("#t-titulo").addEventListener("input", () => {
-    filtrarPeliculas("#t-titulo","Title");
-});
-*/
-
 //Busqueda por Actor, pulsando el botón Buscar
 document.querySelector("#b-actor").addEventListener("click", () => {
     filtrarPeliculas("#t-actor", "Actors");
 });
 
-//Busqueda por Género, pulsando el botón Buscar
-/*
-document.querySelector("#b-genero").addEventListener("click", () => {
-    filtrarPeliculas("#s-genero","Genre");
-});
-*/
 
 //Busqueda por Género, cambiando la selección del desplegable
 document.querySelector("#s-genero").addEventListener("change", () => {
@@ -42,14 +33,13 @@ document.querySelector("#b-anyo").addEventListener("click", () => {
     filtrarPeliculas("#t-anyo", "Year");
 });
 
-/**
- * Función de búsqeuda 
- * 
- * @param {*} idElementoBusqueda Nombre del elemento en el que está el texto de búsqueda
- * @param {*} nombreAtributoBusqueda Nombre del atributo del JSON sobre el que hay que buscar
- */
 function filtrarPeliculas(idElementoBusqueda, nombreAtributoBusqueda) {
     clearCards();
+    if (!peliculas || peliculas.length === 0) {
+        console.log("No hay películas para filtrar.");
+        return; // No hace nada si no hay películas cargadas.
+    }
+
     const textoBusqueda = document.querySelector(idElementoBusqueda).value;
     peliculasFiltradas =
         peliculas.filter(pelicula =>

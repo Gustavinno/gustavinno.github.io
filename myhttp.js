@@ -1,34 +1,14 @@
-
-function doGetRequest(url, processData) {
+function doGetRequest(url, callback) {
   fetch(url)
-      .then((response) => {
+      .then(response => {
           if (!response.ok) {
-              throw new Error("Network response was not ok");
+              throw new Error('Error en la solicitud');
           }
           return response.json();
       })
-      .then((data) => {
-          processData(data);
-      })
-      .catch((error) => console.error("Fetch error:", error));
+      .then(data => callback(data))
+      .catch(error => {
+          console.error('Error al obtener datos:', error);
+          alert('Hubo un problema al obtener las películas.');
+      });
 }
-
-
-/*
-//Otro ejemplo usando fetch
-fetch('https://api.example.com/data')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Error en la solicitud: ' + response.status);
-    }
-    return response.json(); // Parsear el JSON
-  })
-  .then(data => {
-    console.log('Datos recibidos:', data);
-  })
-  .catch(error => {
-    console.error('Hubo un problema con la solicitud:', error);
-  });
-*/
-
-

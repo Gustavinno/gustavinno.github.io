@@ -1,31 +1,3 @@
-/*
-//Diferentes maneras de asignar funciones a eventos
-document.querySelector("#b-ordenar").addEventListener("mouseleave", (event)=> {
-    console.log("Leave");
-});
-
-document.querySelector("#b-ordenar").onclick = function(event) {
-    console.log("Pulsado");
-};
-
-document.querySelector("#b-ordenar").onmouseover = (event)=> console.log("Over");
-
-function doAction(){
-    console.log("Focus in");
-}
-
-document.querySelector("#b-ordenar").addEventListener("focusin", doAction);
-
-document.querySelector("#b-ordenar").onclick = (event)=>{
-    clearCards();
-////
-document.querySelector("#b-ordenar").addEventListener("mouseleave", ()=> {
-    console.log("Leave");
-});
-
-////
-function ordenarPeliculasPorRuntime(peliculasFiltradas) {
-    */
 
 document.querySelector("#b-ordenar").onclick = (event) => {
     clearCards();

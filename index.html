@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="titlestyle.css"><--GG-->
+    <link rel="stylesheet" href="titlestyle.css">
         <link rel="stylesheet" href="mystyle.css">
         <title>Pelis</title>
 
@@ -14,16 +14,16 @@
 
 <body>
     <header>
-        <h1 style=>F l i x n e t</h1>
-        <hr style="height: 3px; background-color: rgb(242, 123, 38); border: none;">
+        <h1 style="font-size: 45px; color: #ff5722;">F l i x n e t</h1>
+        
     </header>
 
 
     <div id="div-formulario">
         <div>
         <input type="text" id="t-titulo-omdb" placeholder="Título">
-        <input type="text" id="t-apikey" placeholder="OMDB API Key">
-        <input type="text" id="t-apikey" placeholder="OMDB API Key" value=fe486a03>
+        <input type="text" id="t-apikey" placeholder="92358e11">
+        <input type="text" id="t-apikey2" placeholder="https://www.omdbapi.com/?apikey=${apiKey}&s=Inception">
         <button id="b-buscar-omdb">Busqueda en OMDB</button>
         </div>
         
@@ -32,22 +32,22 @@
         <button id="b-titulo">Buscar</button>
         <input type="text" id="t-actor" placeholder="Actor">
         <button id="b-actor">Buscar</button>
+    
 
-        <select id="s-genero">
-            <!--option value="drama">Drama</option>-->
-        </select>
+        <select id="s-genero"></select>
 
         <button id="b-genero">Buscar</button>
-
-        <span></span>
         </div>
         <div>
         <input type="number" id="t-anyo" placeholder="Año" min="1900" max="2030">
-        <button id="b-anyo">Buscar</button>
-        <label for="r-asc">Duración ascendente</label>
+                <button id="b-anyo">Buscar</button>
+                
+        <label for="r-asc">Duración ascendente ↑</label>
         <input type="radio" id="r-asc" name="ordenar" value="ascendente" checked>
-        <label for="r-desc">Duración descendente</label>
+
+        <label for="r-desc">Duración descendente↓</label>
         <input type="radio" id="r-desc" name="ordenar" value="descendente">
+
         <button id="b-ordenar">Ordenar</button>
         <span id="contador"></span>
 
@@ -70,8 +70,12 @@
         -->
         </div>
     </div>
-</body>
 
+    <footer>
+        <p>Proyecto Pelis - CURSO Java Script</p>
+    </footer>
+    
+</body>
 </html>
 
 <script src="./myhttp.js"></script>

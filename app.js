@@ -1,155 +1,110 @@
-//const URL = 'https://gustavinno.github.io/movies-250.json';
+/*const URL = 'https://gustavinno.github.io/movies-250.json';
+let url = `https://www.omdbapi.com/?apikey=${apiKey}&s=Inception`;
+let URL = `https://www.omdbapi.com/?apikey=92358e11&s=${tituloBuscado}&page=${page}`;*/
 
-let url= 'http://www.omdbapi.com/?apikey=[apikey]&'
+let URL = 'https://www.omdbapi.com/?apikey=92358e11';
 
-let URL='http://www.omdbapi.com/apikey=';
-let URL= 'https://www.omdbapi.com/?apikey=';
+
 
 let peliculas;
 let peliculasFiltradas;
+let currentPage = 1;
 
+/*function initApp() {
+    document.querySelector("#t-apikey").value = getApiKey();
+}*/
 
 function processMovie(data) {
-    peliculas = data.movies;
-    //peliculasFiltradas = peliculas;//Ambos arrays son el mismo  
-    peliculas = data.Search;
-    peliculasFiltradas = Array.from(peliculas);//Crea un nuevo array
-    generarDesplegableGenero(peliculas);
-
-
-
-    //FORMAS DE RECORRER ARRAYS Y OBJETOS
-    /*
-    //Recorremos con bucle for tradicional
-    for (let i=0;i<peliculas.length;i++){
-        console.log("Duration:" + peliculas[i].Runtime);
+    if (data.Response === 'True') {
+        peliculas = data.Search;
+        peliculasFiltradas = peliculas;  // Asegúrate de que esta variable se actualice
+        renderPaginationControls(Math.ceil(data.totalResults / 10)); // Generamos los controles de paginación
+        clearCards();
+        peliculasFiltradas.forEach(generateCard);  // Asegúrate de usar peliculasFiltradas aquí
+        document.querySelector("#contador").textContent = peliculasFiltradas.length;  // Actualiza el contador
+    } else {
+        alert('Error: ' + data.Error);
     }
-    //Recorremos con bucle for-of
-    for (pelicula of peliculas) {
-        console.log("Director:" + pelicula.Director);
-    }
-    //Recorremos con el método forEach
-    peliculas.forEach(pelicula => {
-        console.log("Título:" + pelicula.Title);
-    });
-    //Recorre el contenido de un objeto
-    for (atributo in peliculas[0]){
-        console.log(atributo, peliculas[0][atributo]);
-    }
-    */
-    peliculas.forEach(pelicula => {
-        generateCard(pelicula);
-    });
 }
 
-function generateCard(pelicula){
-    //0. Cambiamos el contador
-    document.querySelector("#container").textContent=peliculasFiltradas.length;
 
-    //1. Crear la tarjeta
-    const nuevaCard = document.createElement("div");//Crea un elemento de tipo div
-    nuevaCard.setAttribute("class","card");
-    
-    //2. Crear la imagen
+function generateCard(pelicula) {
+    document.querySelector("#contador").textContent = peliculasFiltradas.length;
+
+    const nuevaCard = document.createElement("div");
+    nuevaCard.setAttribute("class", "card");
+
     const nuevaImg = document.createElement("img");
     nuevaImg.setAttribute("src", pelicula.Poster);
     nuevaImg.setAttribute("alt", `Póster de la película ${pelicula.Title}`);
     nuevaCard.appendChild(nuevaImg);
-    
-    //3. Crear el contenido de la tarjeta
+
     const nuevoContenido = document.createElement("div");
-    nuevoContenido.setAttribute("class","card-content");
+    nuevoContenido.setAttribute("class", "card-content");
     nuevaCard.appendChild(nuevoContenido);
-    
-    //4. Crear el h3 del título <h3>El Padrino</h3>
+
     const nuevoTitulo = document.createElement("h3");
     nuevoTitulo.textContent = pelicula.Title;
     nuevoContenido.appendChild(nuevoTitulo);
-    
-    //5. Crear el director <p><strong>Director:</strong> Francis Ford Coppola</p>
+
     const nuevoParrafoDirector = document.createElement("p");
     const nuevaNegrita = document.createElement("strong");
     nuevoParrafoDirector.appendChild(nuevaNegrita);
     nuevaNegrita.textContent = "Director: ";
     nuevoContenido.appendChild(nuevoParrafoDirector);
-    const textoDirector = document.createTextNode(pelicula.Director)
+    const textoDirector = document.createTextNode(pelicula.Director);
     nuevoParrafoDirector.appendChild(textoDirector);
-    
-    //6. Año
-    //<p><strong>Año:</strong> 1972</p>
+
     const nuevoParrafoAnyo = document.createElement("p");
     const nuevaNegritaAnyo = document.createElement("strong");
     nuevoParrafoAnyo.appendChild(nuevaNegritaAnyo);
     nuevaNegritaAnyo.textContent = "Año: ";
     nuevoContenido.appendChild(nuevoParrafoAnyo);
-    const textoAnyo = document.createTextNode(pelicula.Year)
+    const textoAnyo = document.createTextNode(pelicula.Year);
     nuevoParrafoAnyo.appendChild(textoAnyo);
-    
-    //7. Género
-    //<p><span class="genre">Género:</span> Drama, Crimen</p>
-    /*     const nuevoParrafoGenero = document.createElement("p");
-    const nuevoSpanGenero = document.createElement("span");
-    nuevoSpanGenero.setAttribute("class","genre");
-    nuevoSpanGenero.textContent = "Género: ";
-    nuevoParrafoGenero.appendChild(nuevoSpanGenero);
-    nuevoParrafoGenero.appendChild(document.createTextNode(pelicula.Genre));
-    nuevoContenido.appendChild(nuevoParrafoGenero);
-*/
-    //Último paso: Agregar al contenedor la ficha recién creada
-    document.querySelector("#container").appendChild(nuevaCard);//Agregamos el div al contenedor
-}
-function generarDesplegableTipo(pelicula){
-    //limpiamos el desplegable
-    document.querySelectorAll("#s-tipooption").forEach(Option => Option.remove());
+
+    document.querySelector("#container").appendChild(nuevaCard);
 }
 
-//Extraemos los tipos del fichero json
+function generarDesplegableTipo(peliculas) {
+    if (!Array.isArray(peliculas)) {
+        console.error("La variable 'peliculas' no es un array válido.");
+        return;
+    }
 
-let setTipos = new set();
-peliculas.forEach(pelicula => {
-    setTipos.add(pelicula.Type);
-});
+    const desplegable = document.querySelector("#s-tipo");
+    if (!desplegable) {
+        console.error("El elemento con ID 's-tipo' no existe en el DOM.");
+        return;
+    }
 
+    document.querySelectorAll("#s-tipo option").forEach(option => option.remove());
 
-//<option value="drama">Drama</option>
-let arrayTipos = Array.from(setTipos);
-arrayTipos.sort().forEach(tipo => {
-    let tipoOption = document.createElement("option");
-    tipoOption.setAttribute("value", tipo.toLowerCase());
-    //tipoOption.textContent=tipo;
-    tipoOption.textContent = tipo.charAt(0).toUpperCase() + tipo.slice(1)
-    document.querySelector("#s-tipo").appendChild(tipoOption);
-});
-
-
-/*
-
-function generarDesplegableGenero(peliculas){
-      //Extraemos los géneros del fichero json 
-    let setGeneros = new Set();
-    peliculas.forEach(pelicula=>{
-        let generos = pelicula.Genre.split(',').map(genero=>genero.trim());
-        generos.forEach(genero=>setGeneros.add(genero));
+    let setTipos = new Set();
+    peliculas.forEach(pelicula => {
+        if (pelicula && pelicula.Type) {
+            setTipos.add(pelicula.Type);
+        }
     });
-    //<option value="drama">Drama</option>
-    let arrayGeneros = Array.from(setGeneros);
-    arrayGeneros.sort().forEach(genero=>{
-        let generoOption = document.createElement("option");
-        generoOption.setAttribute("value",genero.toLowerCase());
-        generoOption.textContent=genero;
-        document.querySelector("#s-genero").appendChild(generoOption);
-    });
-}
-*/
 
-function clearCards(){
-    //document.querySelector("#container").innerHTML="";//Chapuza
-    document.querySelectorAll(".card").forEach(card=>card.remove());//Elegante
+    Array.from(setTipos)
+        .sort()
+        .forEach(tipo => {
+            let tipoOption = document.createElement("option");
+            tipoOption.setAttribute("value", tipo.toLowerCase());
+            tipoOption.textContent = tipo.charAt(0).toUpperCase() + tipo.slice(1);
+            desplegable.appendChild(tipoOption);
+        });
+}
+
+function clearCards() {
+    document.querySelectorAll(".card").forEach(card => card.remove());
 }
 
 function renderPaginationControls(totalPages) {
     const controlsContainer = document.getElementById('pagination-controls');
     controlsContainer.innerHTML = '';
+
     for (let i = 1; i <= totalPages; i++) {
         const button = document.createElement('button');
         button.innerText = i;
@@ -161,6 +116,5 @@ function renderPaginationControls(totalPages) {
         controlsContainer.appendChild(button);
     }
 }
-initApp();
 
-/* doGetRequest(URL, processMovie); */
+/*initApp()*/

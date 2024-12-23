@@ -1,12 +1,14 @@
 const API_KEY_STORAGE_KEY = 'api_key';
+
 function storeApiKey(apiKey) {
     if (typeof apiKey !== 'string' || apiKey.trim() === '') {
         throw new Error('Invalid API key');
     }
     localStorage.setItem(API_KEY_STORAGE_KEY, apiKey);
 }
+
 function getApiKey() {
-    return localStorage.getItem(API_KEY_STORAGE_KEY);
+    return document.querySelector("#t-apikey").value;
 }
 function clearApiKey() {
     localStorage.removeItem(API_KEY_STORAGE_KEY);

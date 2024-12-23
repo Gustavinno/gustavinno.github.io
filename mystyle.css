@@ -46,3 +46,14 @@ font-size: 0.70em;
 
 }
 
+footer {
+    text-align: center;
+    padding: 1,1em 0;
+    background-color: #40d254;
+    color: rgb(245, 165, 6);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+

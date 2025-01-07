@@ -5,81 +5,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="titlestyle.css">
-        <link rel="stylesheet" href="mystyle.css">
-        <title>Pelis</title>
-
-
+    <link rel="stylesheet" href="mystyle.css">
+    <title>Flixnet</title>
 </head>
 
 <body>
-    <header>
-        <h1 style="font-size: 45px; color: #ff5722;">F l i x n e t</h1>
-        
-    </header>
-
-
-    <div id="div-formulario">
-        <div>
-        <input type="text" id="t-titulo-omdb" placeholder="Título">
-        <input type="text" id="t-apikey" placeholder="92358e11">
-        <input type="text" id="t-apikey2" placeholder="https://www.omdbapi.com/?apikey=${apiKey}&s=Inception">
-        <button id="b-buscar-omdb">Busqueda en OMDB</button>
-        </div>
-        
-        <div>
-        <input type="text" id="t-titulo" placeholder="Título">
-        <button id="b-titulo">Buscar</button>
-        <input type="text" id="t-actor" placeholder="Actor">
-        <button id="b-actor">Buscar</button>
     
-
-        <select id="s-genero"></select>
-
-        <button id="b-genero">Buscar</button>
+    <header>
+        <h1 style=>F l i x n e t</h1>
+        <hr style="height: 3px; background-color: rgb(242, 123, 38); border: none;">
+    <div id="div-formulario">
+        <div id="div-omdb">
+            <input type="text" id="t-titulo-omdb" placeholder="Título">
+            <input type="text" id="t-apikey" placeholder="OMDB API Key">
+            <button id="b-buscar-omdb">Buscar en OMDB</button>
         </div>
+        <div id="pagination-controls"></div>
         <div>
-        <input type="number" id="t-anyo" placeholder="Año" min="1900" max="2030">
-                <button id="b-anyo">Buscar</button>
-                
-        <label for="r-asc">Duración ascendente ↑</label>
-        <input type="radio" id="r-asc" name="ordenar" value="ascendente" checked>
-
-        <label for="r-desc">Duración descendente↓</label>
-        <input type="radio" id="r-desc" name="ordenar" value="descendente">
-
-        <button id="b-ordenar">Ordenar</button>
-        <span id="contador"></span>
-
+            <input type="text" id="t-titulo" placeholder="Título">
+            <select id="s-tipo">
+                <!--<option value="drama">Drama</option>-->
+            </select>
+            <input type="number" id="t-anyo" placeholder="Año" min="1900" max="2030">
+            <button id="b-anyo">Buscar</button>
+            <button id="b-reiniciar">Reiniciar</button>
+            <span id="contador"></span>
         </div>
-
-
-        <div id="container">
-        <!--Empezar por un diseño de ejemplo y guardarlo por si acaso-->
+    </div>
+    <div id="container">
         <!-- Tarjeta 1 -->
         <!--
         <div class="card">
             <img src="https://via.placeholder.com/300x450" alt="Póster de película">
             <div class="card-content">
                 <h3>El Padrino</h3>
-                <p><strong>Director:</strong> Francis Ford Coppola</p>
                 <p><strong>Año:</strong> 1972</p>
                 <p><span class="genre">Género:</span> Drama, Crimen</p>
             </div>
         </div>
         -->
-        </div>
     </div>
-
-    <footer>
-        <p>Proyecto Pelis - CURSO Java Script</p>
-    </footer>
-    
 </body>
-</html>
 
+</html>
 <script src="./myhttp.js"></script>
 <script src="./persistence.manager.js"></script>
 <script src="./app.js"></script>
 <script src="./gestor_busquedas.js"></script>
-<script src="./gestor_ordenacion.js"></script>

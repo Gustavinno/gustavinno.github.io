@@ -1,31 +1,25 @@
-
 function getMoviesFromOMDB(page = 1) {
-
-    const apikey = document.querySelector("#t-apikey").value;
-    if (!apikey) {
-        alert("Por favor, ingrese una clave API válida.");
-        return; // Salir de la función si no hay clave API.
-    }
-    const tituloBuscado = document.querySelector("#t-titulo-omdb").value;
+    let tituloBuscado = document.querySelector("#t-titulo-omdb").value;
+    let apikey = document.querySelector("#t-apikey").value;
+    storeApiKey(apikey);//Almacenamos la apikey en el localstorage
+    //https://www.omdbapi.com/?apikey=fe486a03&s=matrix&page=1
     let nuevaURL = `${URL}${apikey}&s=${tituloBuscado}&page=${page}`;
-
     doGetRequest(nuevaURL, processMovie);
 }
 
-//Busqueda por Título, pulsando el botón Buscar
-document.querySelector("#b-titulo").addEventListener("click", () => {
+//Obtención de películas de OMDB
+document.querySelector("#b-buscar-omdb").addEventListener("click", () => {
+    getMoviesFromOMDB();
+})
+
+//Busqueda por Título, escribiendo en la caja de texto
+document.querySelector("#t-titulo").addEventListener("input", () => {
     filtrarPeliculas("#t-titulo", "Title");
 });
 
-//Busqueda por Actor, pulsando el botón Buscar
-document.querySelector("#b-actor").addEventListener("click", () => {
-    filtrarPeliculas("#t-actor", "Actors");
-});
-
-
 //Busqueda por Género, cambiando la selección del desplegable
-document.querySelector("#s-genero").addEventListener("change", () => {
-    filtrarPeliculas("#s-genero", "Genre");
+document.querySelector("#s-tipo").addEventListener("change", () => {
+    filtrarPeliculas("#s-tipo", "Type");
 });
 
 //Busqueda por Año, pulsando el botón Buscar
@@ -33,13 +27,19 @@ document.querySelector("#b-anyo").addEventListener("click", () => {
     filtrarPeliculas("#t-anyo", "Year");
 });
 
+document.querySelector("#b-reiniciar").addEventListener("click", () => {
+    document.querySelector("#t-titulo").value = "";
+    filtrarPeliculas("#t-titulo", "Title");
+})
+
+/**
+ * Función de búsqeuda 
+ * 
+ * @param {*} idElementoBusqueda Nombre del elemento en el que está el texto de búsqueda
+ * @param {*} nombreAtributoBusqueda Nombre del atributo del JSON sobre el que hay que buscar
+ */
 function filtrarPeliculas(idElementoBusqueda, nombreAtributoBusqueda) {
     clearCards();
-    if (!peliculas || peliculas.length === 0) {
-        console.log("No hay películas para filtrar.");
-        return; // No hace nada si no hay películas cargadas.
-    }
-
     const textoBusqueda = document.querySelector(idElementoBusqueda).value;
     peliculasFiltradas =
         peliculas.filter(pelicula =>

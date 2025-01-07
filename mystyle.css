@@ -1,4 +1,3 @@
-
 #div-formulario {
     padding: 1em;
     text-align: center;
@@ -17,43 +16,36 @@ select {
 }
 
 #div-formulario button {
-    background-color: rgb(177, 180, 4);
+    background-color: rgb(77, 176, 1);
 }
 
 #div-formulario button:hover {
-    background-color: rgb(245, 165, 6);
+    background-color: rgb(29, 109, 15);
     cursor: pointer;
 }
 
 .card-content h3 {
     font-size: 1.1em;
-   }s
+}
 
 .card img {
     height: 70%;
 }
 
-.card-content p:nth-child(3), p:nth-child(4) {
-font-size: 0.70em;
+.card-content p:nth-child(3),p:nth-child(4) {
+    font-size: 0.70em;
 }
 
 #contador {
-    background-color: rgb(245, 165, 6);
-    color: rgb(110, 6, 6);
+    background-color: red;
+    color:white;
     font-weight: bolder;
     padding: 0.2em 0.5em 0.2em 0.5em;
     border-radius: 50px;
-
 }
 
-footer {
+h1 {
     text-align: center;
-    padding: 1,1em 0;
-    background-color: #40d254;
-    color: rgb(245, 165, 6);
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    color: rgb(242, 123, 38);
+    font-size: 50px;
 }
-
-

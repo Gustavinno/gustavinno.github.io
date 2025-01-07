@@ -8,11 +8,13 @@ function storeApiKey(apiKey) {
 }
 
 function getApiKey() {
-    return document.querySelector("#t-apikey").value;
+    return localStorage.getItem(API_KEY_STORAGE_KEY);
 }
+
 function clearApiKey() {
     localStorage.removeItem(API_KEY_STORAGE_KEY);
 }
+
 // Example usage:
 // storeApiKey('your-api-key-here');
 // const apiKey = getApiKey();

@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #687f56; /* Fondo oscuro */
+    background-color: #270202; /* Fondo oscuro */
     color: white;
     margin: 0;
     padding: 0;
@@ -8,7 +8,7 @@ body {
 
 #container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 tarjetas por fila */
+    grid-template-columns: repeat(5, 1fr); /* 4 tarjetas por fila */
     gap: 20px;
     padding: 20px;
     max-width: 1200px;
@@ -16,22 +16,22 @@ body {
 }
 
 .card {
-    background-color: #181815;
+    background-color: #1f1f1f;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(241, 138, 3, 0.914); /* Sombra en las tarjetas */
-    transition: transform 0.5s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra en las tarjetas */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(250, 164, 3, 0.7); /* Efecto al pasar el mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7); /* Efecto al pasar el mouse */
 }
 
 .card img {
     width: 100%;
     height: auto;
-    border-bottom: 2px solid #060505;
+    border-bottom: 2px solid #333;
 }
 
 .card-content {
@@ -41,13 +41,13 @@ body {
 .card-content h3 {
     font-size: 1.4em;
     margin: 0;
-    color: #cec7c7;
+    color: #f0f0f0;
 }
 
 .card-content p {
     font-size: 0.9em;
     margin: 5px 0;
-    color: #cec7c7;
+    color: #ccc;
 }
 
 .card-content .genre {
